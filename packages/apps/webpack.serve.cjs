@@ -16,9 +16,9 @@ module.exports = merge(
       port: 3000,
       static: path.resolve(__dirname, 'build')
     },
-    plugins: [
+    plugins: [  
       new HtmlWebpackPlugin({
-        PAGE_TITLE: 'Polkadot/Substrate Portal',
+        PAGE_TITLE: 'Massbit Portal',
         inject: true,
         template: path.join(__dirname, 'public/index.html')
       }),

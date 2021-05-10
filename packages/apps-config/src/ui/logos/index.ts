@@ -96,6 +96,7 @@ import nodeZenlink from './nodes/zenlink.svg';
 import nodeZero from './nodes/zero.svg';
 // last-resort fallback, just something empty
 import emptyLogo from './empty.svg';
+import massbit from './nodes/massbit.png';
 
 // Alphabetical overrides based on the actual matched chain name
 // NOTE: This is as retrieved via system.chain RPC
@@ -165,7 +166,8 @@ export const chainLogos: Record<string, unknown> = [
   ['Westlake', nodeWestlake],
   ['PHOENIX PC1', nodePhoenix],
   ['mybank.network PC1', mybank],
-  ['Unit Network', nodeUnitv]
+  ['Unit Network', nodeUnitv],
+  ['MassBit', massbit],
 ].reduce((logos, [chain, logo]): Record<string, unknown> => ({
   ...logos,
   [(chain as string).toLowerCase()]: logo
@@ -273,7 +275,8 @@ export const nodeLogos: Record<string, unknown> = [
   ['Westlake', nodeWestlake],
   ['Zeitgeist Node', nodeZeitgeist],
   ['Zeitgeist Collator', nodeZeitgeist],
-  ['mybank.network', mybank]
+  ['mybank.network', mybank],
+  ['MassBit', massbit]
 ].reduce((logos, [node, logo]): Record<string, unknown> => ({
   ...logos,
   [(node as string).toLowerCase().replace(/-/g, ' ')]: logo
@@ -394,7 +397,8 @@ export const namedLogos: Record<string, unknown> = {
   westend: nodePolkadot,
   westlake: nodeWestlake,
   zeitgeist: nodeZeitgeist,
-  zero: nodeZero
+  zero: nodeZero,
+  MassBit: massbit  
 };
 
 // extension logos
@@ -414,7 +418,7 @@ export const externalLogos: Record<string, unknown> = {
 
 // empty logos
 export const emptyLogos: Record<string, unknown> = {
-  empty: emptyLogo
+  empty: massbit
 };
 
 // preload all

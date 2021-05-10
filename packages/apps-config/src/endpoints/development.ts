@@ -13,7 +13,7 @@ interface EnvWindow {
   }
 }
 
-export function createCustom (t: TFunction): LinkOption[] {
+export function createCustom(t: TFunction): LinkOption[] {
   const WS_URL = (
     (typeof process !== 'undefined' ? process.env?.WS_URL : undefined) ||
     (typeof window !== 'undefined' ? (window as EnvWindow).process_env?.WS_URL : undefined)
@@ -37,7 +37,7 @@ export function createCustom (t: TFunction): LinkOption[] {
     : [];
 }
 
-export function createOwn (t: TFunction): LinkOption[] {
+export function createOwn(t: TFunction): LinkOption[] {
   try {
     // this may not be available, e.g. when running via script
     const storedItems = localStorage?.getItem(CUSTOM_ENDPOINT_KEY);
@@ -59,14 +59,27 @@ export function createOwn (t: TFunction): LinkOption[] {
   return [];
 }
 
-export function createDev (t: TFunction): LinkOption[] {
+export function createDev(t: TFunction): LinkOption[] {
   return [
+    // {
+    //   dnslink: 'local',
+    //   info: 'local',
+    //   text: t('rpc.local', 'Local Node', { ns: 'apps-config' }),
+    //   textBy: '127.0.0.1:9944',
+    //   value: 'ws://127.0.0.1:9944'
+    // },
     {
-      dnslink: 'local',
-      info: 'local',
-      text: t('rpc.local', 'Local Node', { ns: 'apps-config' }),
-      textBy: '127.0.0.1:9944',
-      value: 'ws://127.0.0.1:9944'
-    }
+      dnslink: 'MassBit',
+      info: 'MassBit-DevNet',
+      text: t('rpc.massbit.parity', 'Massbit', { ns: 'apps-config' }),
+      textBy: 'MassBit-DevNet',
+      value: 'wss://dev-api.massbit.io/websocket'
+    },
+    // {
+    //   dnslink: 'MassBit',
+    //   info: 'MassBit-DevNet',
+    //   text: t('rpc.massbit.parity', 'Massbit', { ns: 'apps-config' }),
+    //   value: 'wss://dev-api.massbit.io/websocket'
+    // },
   ];
 }

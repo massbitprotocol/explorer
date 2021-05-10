@@ -55,7 +55,7 @@ export function createIdenticon ({ info, text, value }: Option, overrides: strin
           ? (
             <ChainImg
               className='ui--Dropdown-icon'
-              logo='empty'
+              logo='Massbit'
             />
           )
           : (
