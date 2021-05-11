@@ -68,7 +68,7 @@ function PollApp ({ basePath, className }: Props): React.ReactElement<Props> {
 
           setTurnout({ percentage, voted });
         })
-        .catch(console.log);
+        // .catch(console.log);
     }
   }, [api, totalIssuance, totals]);
 

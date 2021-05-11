@@ -20,7 +20,7 @@ function getEntries (langRoot) {
 }
 
 function checkLanguage (lang) {
-  console.log(`*** Checking ${lang}`);
+  // console.log(`*** Checking ${lang}`);
 
   const langRoot = path.join(i18nRoot, lang);
   const entries = getEntries(langRoot);
@@ -28,7 +28,7 @@ function checkLanguage (lang) {
   const missing = roots.filter((entry) => !entries.includes(entry));
 
   if (missing.length) {
-    console.log(`\ttop-level missing ${missing.length}: ${missing.join(', ')}`);
+    // console.log(`\ttop-level missing ${missing.length}: ${missing.join(', ')}`);
   }
 
   entries.forEach((entry) => {
@@ -37,7 +37,7 @@ function checkLanguage (lang) {
     const root = defaults[entry];
 
     if (!root) {
-      console.log(`\t> ${entry} not found in default, not checking`);
+      // console.log(`\t> ${entry} not found in default, not checking`);
 
       return;
     }
@@ -46,19 +46,19 @@ function checkLanguage (lang) {
     const extra = keys.filter((key) => !root.includes(key));
 
     if (missing.length) {
-      console.log(`\t> ${entry} ${missing.length} keys missing`);
+      // console.log(`\t> ${entry} ${missing.length} keys missing`);
 
       missing.forEach((key) =>
-        console.log(`\t\t${key}`)
+        // console.log(`\t\t${key}`)
       );
     }
 
     if (extra.length) {
-      console.log(`\t> ${entry} ${extra.length} keys extra`);
+      // console.log(`\t> ${entry} ${extra.length} keys extra`);
 
-      extra.forEach((key) =>
-        console.log(`\t\t${key}`)
-      );
+      // extra.forEach((key) =>
+      //   console.log(`\t\t${key}`)
+      // );
     }
   });
 }

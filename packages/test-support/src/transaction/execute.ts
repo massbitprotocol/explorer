@@ -7,27 +7,29 @@ import { EventRecord, ExtrinsicStatus } from '@polkadot/types/interfaces';
 
 import { waitFor } from '../utils/waitFor';
 
-export async function execute (extrinsic: SubmittableExtrinsic<'promise'>, singer: KeyringPair, logger = { info: console.log }): Promise<void> {
+export async function execute (extrinsic: SubmittableExtrinsic<'promise'>, singer: KeyringPair
+// , logger = { info: console.log }
+): Promise<void> {
   let currentTxDone = false;
 
   function sendStatusCb ({ events = [], status }: { events?: EventRecord[], status: ExtrinsicStatus; }) {
     if (status.isInvalid) {
-      logger.info('Transaction invalid');
+      // logger.info('Transaction invalid');
       currentTxDone = true;
     } else if (status.isReady) {
-      logger.info('Transaction is ready');
+      // logger.info('Transaction is ready');
     } else if (status.isBroadcast) {
-      logger.info('Transaction has been broadcasted');
+      // logger.info('Transaction has been broadcasted');
     } else if (status.isInBlock) {
-      logger.info('Transaction is in block');
+      // logger.info('Transaction is in block');
     } else if (status.isFinalized) {
-      logger.info(`Transaction has been included in blockHash ${status.asFinalized.toHex()}`);
+      // logger.info(`Transaction has been included in blockHash ${status.asFinalized.toHex()}`);
       events.forEach(
         ({ event }) => {
           if (event.method === 'ExtrinsicSuccess') {
-            logger.info('Transaction succeeded');
+            // logger.info('Transaction succeeded');
           } else if (event.method === 'ExtrinsicFailed') {
-            logger.info('Transaction failed');
+            // logger.info('Transaction failed');
           }
         }
       );

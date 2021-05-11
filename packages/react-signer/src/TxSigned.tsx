@@ -247,11 +247,12 @@ function TxSigned ({ className, currentItem, requestAddress }: Props): React.Rea
         } else if (flags.isHardware) {
           try {
             const ledger = getLedger();
-            const { address } = await ledger.getAddress(false, flags.accountOffset, flags.addressOffset);
+            // const { address } = 
+            await ledger.getAddress(false, flags.accountOffset, flags.addressOffset);
 
-            console.log(`Signing with Ledger address ${address}`);
+            // console.log(`Signing with Ledger address ${address}`);
           } catch (error) {
-            console.error(error);
+            // console.error(error);
 
             passwordError = t<string>('Unable to connect to the Ledger, ensure support is enabled in settings and no other app is using it. {{error}}', { replace: { error: (error as Error).message } });
           }

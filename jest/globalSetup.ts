@@ -8,7 +8,7 @@ import { SubstrateTestsGlobal } from './substrateTestsGlobal';
 declare const global: SubstrateTestsGlobal;
 
 const startSubstrate = async () => {
-  console.log('Substrate container starting...');
+  // console.log('Substrate container starting...');
 
   const startedTestContainer = await new GenericContainer('parity/substrate')
     .withPullPolicy(new AlwaysPullPolicy())
@@ -18,7 +18,7 @@ const startSubstrate = async () => {
     .withWaitStrategy(Wait.forLogMessage('New epoch 0 launching'))
     .start();
 
-  console.log('Done.');
+  // console.log('Done.');
 
   process.env.TEST_SUBSTRATE_PORT = startedTestContainer.getMappedPort(9944)?.toString() || '';
   global.__SUBSTRATE__ = startedTestContainer;

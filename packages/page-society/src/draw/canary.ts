@@ -174,7 +174,7 @@ function tattoo3 (ctx: CanvasRenderingContext2D, bits: boolean[]): void {
 }
 
 export default function draw (ctx: CanvasRenderingContext2D, accountId: AccountId): void {
-  console.log(`Generating ink for ${accountId.toString()} as ${accountId.toHex()}`);
+  // console.log(`Generating ink for ${accountId.toString()} as ${accountId.toHex()}`);
 
   const bits = addressToBits(accountId.toU8a());
 

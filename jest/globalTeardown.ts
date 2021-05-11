@@ -6,9 +6,9 @@ import { SubstrateTestsGlobal } from './substrateTestsGlobal';
 declare const global: SubstrateTestsGlobal;
 
 export default async (): Promise<void> => {
-  console.log('Shutting down Substrate container...');
+  // console.log('Shutting down Substrate container...');
 
   await global.__SUBSTRATE__.stop();
 
-  console.log('Done.');
+  // console.log('Done.');
 };
