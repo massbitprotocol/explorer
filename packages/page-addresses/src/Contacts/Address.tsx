@@ -174,7 +174,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
               <Transfer
                 key='modal-transfer'
                 onClose={_toggleTransfer}
-                recipientId={address}
+                recipientId={address+ "2"}
               />
             )}
           </>
