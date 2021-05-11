@@ -15,7 +15,7 @@ import { isJsonObject, stringToU8a, u8aToString } from '@polkadot/util';
 
 import { useTranslation } from './translate';
 
-const EMPTY_CODE = '{\n\n}';
+const EMPTY_CODE = "{\"WorkerStatus\":{\"_enum\":[\"NormalStatus\",\"BlackList\"]},\"Worker\":{\"ip\":\"Vec<u8>\",\"is_black_list\":\"WorkerStatus\",\"job_proposal_id\":\"JobProposalIndex\"},\"WorkerIndex\":\"u32\",\"JobReportIndex\":\"u32\",\"JobProposalIndex\":\"u32\",\"JobReport\":{\"responsible_account_id\":\"AccountId\",\"responsible_worker_id\":\"WorkerIndex\",\"job_input\":\"Vec<u8>\",\"job_output\":\"Vec<u8>\",\"verify_agree_workers\":\"Vec<WorkerIndex>\",\"verify_deny_workers\":\"Vec<WorkerIndex>\",\"client_account\":\"AccountId\"},\"JobProposal\":{\"proposer_account_id\":\"AccountId\",\"name\":\"Vec<u8>\",\"stake\":\"64\",\"description\":\"Vec<u8>\",\"call_url\":\"Vec<u8>\"}}";
 const EMPTY_TYPES = {};
 
 interface AllState {
