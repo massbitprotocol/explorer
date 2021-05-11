@@ -70,9 +70,10 @@ function isKeyringLoaded () {
 
 function getDevTypes (): Record<string, Record<string, string>> {
   const types = decodeUrlTypes() || store.get('types', {}) as Record<string, Record<string, string>>;
-  const names = Object.keys(types);
+  // const names = Object.keys(types);
 
-  names.length && console.log('Injected types:', names.join(', '));
+  // names.length &&
+  //  console.log('Injected types:', names.join(', '));
 
   return types;
 }
@@ -135,7 +136,7 @@ async function loadOnReady (api: ApiPromise, injectedPromise: Promise<InjectedEx
   const isEthereum = ethereumChains.includes(api.runtimeVersion.specName.toString());
   const isDevelopment = (systemChainType.isDevelopment || systemChainType.isLocal || isTestChain(systemChain));
 
-  console.log(`chain: ${systemChain} (${systemChainType.toString()}), ${JSON.stringify(properties)}`);
+  // console.log(`chain: ${systemChain} (${systemChainType.toString()}), ${JSON.stringify(properties)}`);
 
   // explicitly override the ss58Format as specified
   registry.setChainProperties(registry.createType('ChainProperties', { ss58Format, tokenDecimals, tokenSymbol }));
