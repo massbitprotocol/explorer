@@ -78,8 +78,9 @@ i18next
     returnEmptyString: false,
     returnNull: false
   })
-  .catch((error: Error): void =>
-    console.log('i18n: failure', error)
+  .catch((error: Error): void => {
+    // console.log('i18n: failure', error)
+  }
   );
 
 settings.on('change', (settings): void => {

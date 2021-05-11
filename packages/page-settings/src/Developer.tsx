@@ -86,7 +86,7 @@ function Developer ({ className = '', onStatusChange }: Props): React.ReactEleme
         const types = JSON.parse(code) as Record<string, unknown>;
         const typesPlaceholder = Object.keys(types).join(', ');
 
-        console.log('Detected types:', typesPlaceholder);
+        // console.log('Detected types:', typesPlaceholder);
 
         _setState({
           code,
@@ -143,7 +143,7 @@ function Developer ({ className = '', onStatusChange }: Props): React.ReactEleme
         if (Object.keys(types).length) {
           url = encodeUrlTypes(types);
 
-          console.log(url);
+          // console.log(url);
         }
       } catch (error) {
         console.error(error);

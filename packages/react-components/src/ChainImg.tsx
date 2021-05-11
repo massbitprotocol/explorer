@@ -25,10 +25,8 @@ function ChainImg ({ className = '', isInline, logo, onClick, withoutHl }: Props
     const found = logo
       ? namedLogos[logo]
       : chainLogos[sanitize(systemChain)] || nodeLogos[sanitize(systemName)];
-
     return [!found || logo === 'empty', (found || emptyLogos.empty) as string];
   }, [logo, systemChain, systemName]);
-
   return (
     <img
       alt='chain logo'
@@ -43,6 +41,7 @@ export default React.memo(styled(ChainImg)`
   background: white;
   border-radius: 50%;
   box-sizing: border-box;
+  padding:3px;
 
   &.isInline {
     display: inline-block;
