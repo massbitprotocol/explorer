@@ -74,12 +74,18 @@ function Developer ({ className = '', onStatusChange }: Props): React.ReactEleme
 
   useEffect((): void => {
     const types = decodeUrlTypes() || store.get('types') as Record<string, unknown> || {};
-
+    console.log(types)
     if (Object.keys(types).length) {
       setCode(JSON.stringify(types, null, 2));
       setTypes({});
       setTypesPlaceholder(Object.keys(types).join(', '));
       setSharedUrl(encodeUrlTypes(types));
+      console.log(types)
+    }else{
+      console.log('else')
+      _clearTypes();
+      _saveDeveloper();
+      // window.location.reload(false);
     }
   }, []);
 
@@ -173,9 +179,9 @@ function Developer ({ className = '', onStatusChange }: Props): React.ReactEleme
 
         if (Object.keys(types).length) {
           url = encodeUrlTypes(types);
-
           // console.log(url);
         }
+        window.location.reload(false);
       } catch (error) {
         console.error(error);
         setIsTypesValid(false);

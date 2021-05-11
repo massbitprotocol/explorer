@@ -68,13 +68,50 @@ function isKeyringLoaded () {
   }
 }
 
+
+const EMPTY_TYPES = {
+  "WorkerStatus": {
+    "_enum": [
+      "NormalStatus",
+      "BlackList"
+    ]
+  },
+  "Worker": {
+    "ip": "Vec<u8>",
+    "is_black_list": "WorkerStatus",
+    "job_proposal_id": "JobProposalIndex"
+  },
+  "WorkerIndex": "u32",
+  "JobReportIndex": "u32",
+  "JobProposalIndex": "u32",
+  "JobReport": {
+    "responsible_account_id": "AccountId",
+    "responsible_worker_id": "WorkerIndex",
+    "job_input": "Vec<u8>",
+    "job_output": "Vec<u8>",
+    "verify_agree_workers": "Vec<WorkerIndex>",
+    "verify_deny_workers": "Vec<WorkerIndex>",
+    "client_account": "AccountId"
+  },
+  "JobProposal": {
+    "proposer_account_id": "AccountId",
+    "name": "Vec<u8>",
+    "stake": "u64",
+    "description": "Vec<u8>",
+    "call_url": "Vec<u8>"
+  }
+};
+
 function getDevTypes (): Record<string, Record<string, string>> {
-  const types = decodeUrlTypes() || store.get('types', {}) as Record<string, Record<string, string>>;
+  var types = decodeUrlTypes() || store.get('types', {}) as Record<string, Record<string, string>>;
   // const names = Object.keys(types);
 
   // names.length &&
   //  console.log('Injected types:', names.join(', '));
 
+  if (!Object.keys(types).length) {
+    types =  EMPTY_TYPES;
+  }
   return types;
 }
 
