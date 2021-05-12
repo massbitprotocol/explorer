@@ -19,7 +19,7 @@ module.exports = merge(
       // It must be placed before HtmlWebpackPlugin
       new CopyWebpackPlugin({ patterns: [{ from: '../apps/public' }] }),
       new HtmlWebpackPlugin({
-        PAGE_TITLE: 'MassBit Portal',
+        PAGE_TITLE: 'MassBit Explorer',
         inject: true,
         template: path.join(context, '../apps/public/index.html')
       })
