@@ -71,14 +71,14 @@ export function createDev(t: TFunction): LinkOption[] {
     {
       dnslink: 'MassBit',
       info: 'MassBit-DevNet',
-      text: t('rpc.massbit.parity', 'Massbit', { ns: 'apps-config' }),
+      text: t('rpc.massbit.parity', 'MassBit', { ns: 'apps-config' }),
       textBy: 'MassBit-DevNet',
       value: 'wss://dev-api.massbit.io/websocket'
     },
     // {
     //   dnslink: 'MassBit',
     //   info: 'MassBit-DevNet',
-    //   text: t('rpc.massbit.parity', 'Massbit', { ns: 'apps-config' }),
+    //   text: t('rpc.massbit.parity', 'MassBit', { ns: 'apps-config' }),
     //   value: 'wss://dev-api.massbit.io/websocket'
     // },
   ];
