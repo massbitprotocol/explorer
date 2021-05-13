@@ -18,7 +18,7 @@ module.exports = merge(
     },
     plugins: [  
       new HtmlWebpackPlugin({
-        PAGE_TITLE: 'Massbit Portal',
+        PAGE_TITLE: 'MassBit Explorer',
         inject: true,
         template: path.join(__dirname, 'public/index.html')
       }),

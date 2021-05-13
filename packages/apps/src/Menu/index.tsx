@@ -39,10 +39,22 @@ function createExternals (t: TFunction): ItemRoute[] {
     //   name: 'wiki',
     //   text: t<string>('nav.wiki', 'Wiki', { ns: 'apps-routing' })
     // }
+    { 
+      href: 'https://www.massbit.io/', 
+      icon: 'home', 
+      name: 'homepage', 
+      text: t<string>('nav.home', 'Homepage', { ns: 'apps-routing' }) },
+    { 
+      href: 'https://dashboard.massbit.io/', 
+      icon: 'book', 
+      name: 'dashboard', 
+      text: t<string>('nav.dashboard', 'Dashboard', { ns: 'apps-routing' }) },
   ];
 }
 
-function checkVisible ({ api, isApiConnected, isApiReady }: ApiProps, hasAccounts: boolean, hasSudo: boolean, { isHidden, needsAccounts, needsApi, needsSudo }: Route['display']): boolean {
+function checkVisible (name: string,{ api, isApiConnected, isApiReady }: ApiProps, hasAccounts: boolean, hasSudo: boolean, { isHidden, needsAccounts, needsApi, needsSudo }: Route['display']): boolean {
+  
+  
   if (isHidden) {
     return false;
   } else if (needsAccounts && !hasAccounts) {
@@ -55,7 +67,13 @@ function checkVisible ({ api, isApiConnected, isApiReady }: ApiProps, hasAccount
     return false;
   }
 
-  return findMissingApis(api, needsApi).length === 0;
+  const notFound = findMissingApis(api, needsApi);
+
+  if (notFound.length !== 0) {
+    // console.log(name +'-'+ notFound.toString())
+  }
+
+  return notFound.length === 0;
 }
 
 function extractGroups (routing: Routes, groupNames: Record<string, string>, apiProps: ApiProps, hasAccounts: boolean, hasSudo: boolean): Group[] {
@@ -77,7 +95,7 @@ function extractGroups (routing: Routes, groupNames: Record<string, string>, api
     .map(({ name, routes }): Group => ({
       name,
       routes: routes.filter(({ display }) =>
-        checkVisible(apiProps, hasAccounts, hasSudo, display)
+        checkVisible(name, apiProps, hasAccounts, hasSudo, display)
       )
     }))
     .filter(({ routes }) => routes.length);
